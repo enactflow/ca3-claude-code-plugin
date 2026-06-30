@@ -1,0 +1,21 @@
+{
+  "name": "ca3",
+  "version": "0.1.0",
+  "description": "Connect Claude Code to CA3, a user-owned memory hub for notes, memory book entries, and personalization.",
+  "author": {
+    "name": "EnactFlow",
+    "url": "https://ca3.dribwise.ai"
+  },
+  "homepage": "https://ca3.dribwise.ai",
+  "repository": "https://github.com/enactflow/ca3-claude-code-plugin",
+  "license": "MIT",
+  "keywords": [
+    "ca3",
+    "memory",
+    "notes",
+    "mcp",
+    "personalization"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "ca3-claude-code-plugin",
+  "description": "CA3 plugin marketplace for Claude Code",
+  "owner": {
+    "name": "EnactFlow",
+    "url": "https://ca3.dribwise.ai"
+  },
+  "plugins": [
+    {
+      "name": "ca3",
+      "source": "./plugins/ca3",
+      "version": "0.1.0",
+      "description": "Use CA3 notes, memory book, and personalization from Claude Code.",
+      "category": "productivity",
+      "tags": [
+        "memory",
+        "notes",
+        "mcp",
+        "personalization"
+      ]
+    }
+  ]
+}
