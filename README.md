@@ -8,15 +8,40 @@ This repository is a Claude Code plugin marketplace source for connecting Claude
 
 ## Install
 
-Add this marketplace source:
+Add the CA3 marketplace, then install the `ca3` plugin at user scope:
 
 ```bash
 claude plugin marketplace add enactflow/ca3-claude-code-plugin
+claude plugin install ca3 --scope user
 ```
 
-Then install `ca3` from the Claude Code plugin directory.
-
 On first use, Claude Code should open the CA3 OAuth flow and ask you to authorize the requested scopes.
+
+Start a new Claude Code session after installing so the CA3 skill and MCP server are loaded cleanly.
+
+For project-level or local installs, replace `user` with `project` or `local`.
+
+## Upgrade
+
+Update the installed plugin at the same scope where it was installed:
+
+```bash
+claude plugin update ca3 --scope user
+```
+
+For project-level or local installs, replace `user` with `project` or `local`.
+
+Restart Claude Code after upgrading. Existing sessions may keep older plugin skill or OAuth state.
+
+## Verify
+
+Confirm CA3 is installed and enabled:
+
+```bash
+claude plugin list --json
+```
+
+Look for `ca3` with version `0.1.2` or newer, the expected scope, and enabled state.
 
 ## MCP Endpoint
 
@@ -55,7 +80,7 @@ When creating or updating a note through MCP, include the required `profile_hint
 
 ## Troubleshooting
 
-After installing, updating, or re-authenticating the plugin, start a new Claude Code session before testing CA3. Existing sessions may keep stale plugin skill or OAuth connection state.
+After installing, upgrading, or re-authenticating the plugin, start a new Claude Code session before testing CA3.
 
 If an old session reports an OAuth refresh or authentication error, authenticate CA3 again, confirm the CA3 MCP server is enabled, then open a new Claude Code session.
 
