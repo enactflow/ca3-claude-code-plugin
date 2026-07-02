@@ -9,14 +9,14 @@
     {
       "name": "ca3",
       "source": "./plugins/ca3",
-      "version": "0.1.0",
-      "description": "Use CA3 notes, memory book, and personalization from Claude Code.",
+      "version": "0.1.1",
+      "description": "Use CA3 notes and attachments from Claude Code.",
       "category": "productivity",
       "tags": [
-        "memory",
         "notes",
+        "attachments",
         "mcp",
-        "personalization"
+        "productivity"
       ]
     }
   ]
