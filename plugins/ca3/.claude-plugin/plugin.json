@@ -1,7 +1,7 @@
 {
   "name": "ca3",
-  "version": "0.1.2",
-  "description": "Connect Claude Code to CA3, a private memory layer for AI agents.",
+  "version": "0.2.0",
+  "description": "Connect Claude Code to CA3, a user-owned context and memory layer.",
   "author": {
     "name": "EnactFlow",
     "url": "https://ca3.dribwise.ai"

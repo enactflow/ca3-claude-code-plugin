@@ -9,8 +9,8 @@
     {
       "name": "ca3",
       "source": "./plugins/ca3",
-      "version": "0.1.2",
-      "description": "Use CA3 as Claude Code's private memory layer.",
+      "version": "0.2.0",
+      "description": "Continue work with your user-owned CA3 context.",
       "category": "productivity",
       "tags": [
         "notes",
