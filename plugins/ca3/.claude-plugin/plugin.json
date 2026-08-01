@@ -1,6 +1,6 @@
 {
   "name": "ca3",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Connect Claude Code to CA3, a user-owned context and memory layer.",
   "author": {
     "name": "EnactFlow",
@@ -12,6 +12,8 @@
   "keywords": [
     "ca3",
     "notes",
+    "memory",
+    "context",
     "attachments",
     "mcp",
     "productivity"
