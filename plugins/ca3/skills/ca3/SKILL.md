@@ -28,9 +28,14 @@ If you need to know what CA3 can do, inspect the CA3 MCP tools exposed by the pl
 
 Use proactive read, intent-bound write, and explicit delete:
 
-- For cross-thread continuation, a handoff, or work that clearly depends on the
+- For cross-session continuation, a handoff, or work that clearly depends on the
   user's current state, call `catch_up` proactively. Treat its profile, Current
-  Context, and latest Memory as bounded source material, not an invented answer.
+  Context, and focused or recent Memory events as bounded source material, not
+  an invented answer.
+- When calling `catch_up`, provide a short task focus when it is already clear.
+  Include host, working-directory, or session environment only when Claude Code
+  already exposes it. Omit unknown values and never interrupt the user to obtain
+  provenance metadata. Memory retrieval remains cross-client by default.
 - When the user specifically refers to selected Notes, use
   `get_active_context`, then read only relevant Notes with `get_note`. An empty
   Current Context is meaningful; do not silently replace it with a library-wide
@@ -48,10 +53,13 @@ Use proactive read, intent-bound write, and explicit delete:
 - Every create, append, or edit needs a fresh `operation_id` and a short English
   `profile_hint` describing the durable user intent. Reuse an operation ID only
   to retry the exact same request after a lost response.
-- Use `remember` for a high-confidence cross-thread checkpoint such as a durable
-  decision, progress state, blocker, or next step. Do not use it for ordinary
-  chat noise or as a substitute for a user-managed Note. Each call needs a fresh
-  `operation_id` and a short English `profile_hint`.
+- Use `remember` for a high-confidence cross-session checkpoint such as a
+  durable decision, progress state, blocker, or next step. Each successful call
+  creates one atomic Memory event. Add the known project hint and available
+  environment without asking the user; omission is normal for Web or
+  project-less work. Never invent or override the authenticated source client.
+  Do not use Memory for ordinary chat noise or as a substitute for a user-managed
+  Note. Each call needs a fresh `operation_id` and a short English `profile_hint`.
 - Use `update_personalization` only for stable, long-term, reusable user facts or
   preferences. Read `catch_up` first, preserve still-valid profile content, and
   submit a full replacement with its current `expected_revision_id` and a fresh

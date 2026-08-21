@@ -41,7 +41,7 @@ Confirm CA3 is installed and enabled:
 claude plugin list --json
 ```
 
-Look for `ca3` with version `0.3.0` or newer, the expected scope, and enabled state.
+Look for `ca3` with version `0.4.0` or newer, the expected scope, and enabled state.
 
 ## MCP Endpoint
 
@@ -87,6 +87,12 @@ For foundational context operations:
 - `recall` when earlier decisions, material, progress, or preferences may matter.
 - `remember` for a durable cross-session checkpoint, not ordinary chat noise.
 - `update_personalization` for stable, confirmed long-term facts or preferences.
+
+When Claude Code already knows the task focus, project, host, working directory,
+or session, it supplies that optional context to `catch_up` and `remember`.
+Missing metadata is normal and must not trigger a user question. Each `remember`
+call creates one atomic Memory event, while reads remain cross-client by default
+and preserve the event's authenticated origin.
 
 New connections request CA3's current ten-scope default grant. Existing OAuth
 grants are not expanded by a plugin upgrade. If a new context tool returns
