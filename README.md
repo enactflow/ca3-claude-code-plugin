@@ -41,7 +41,7 @@ Confirm CA3 is installed and enabled:
 claude plugin list --json
 ```
 
-Look for `ca3` with version `0.4.1` or newer, the expected scope, and enabled state.
+Look for `ca3` with version `0.4.2` or newer, the expected scope, and enabled state.
 
 ## MCP Endpoint
 
@@ -114,7 +114,11 @@ Attachments are discovered through `get_note` and read through
 `prepare_attachment`, uploads exact local bytes only when the returned policy
 requires it, then passes the prepared `upload_id` to the same atomic
 `create_note`, `append_note`, or `edit_note` call. Signed policy details remain
-short-lived and must not be printed or persisted.
+short-lived and must not be printed or persisted. Inline images use complete
+Markdown image syntax such as `![Diagram]({{image:diagram}})`; a bare
+`{{image:diagram}}` is invalid. Standalone images can add
+`{ca3-layout=1 ca3-align=center ca3-width=60}` with `left`, `center`, or `right`
+alignment and `auto` or `10..100` width.
 
 ## Troubleshooting
 
