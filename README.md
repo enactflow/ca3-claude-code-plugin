@@ -41,7 +41,7 @@ Confirm CA3 is installed and enabled:
 claude plugin list --json
 ```
 
-Look for `ca3` with version `0.4.0` or newer, the expected scope, and enabled state.
+Look for `ca3` with version `0.4.1` or newer, the expected scope, and enabled state.
 
 ## MCP Endpoint
 
@@ -94,7 +94,8 @@ Missing metadata is normal and must not trigger a user question. Each `remember`
 call creates one atomic Memory event, while reads remain cross-client by default
 and preserve the event's authenticated origin.
 
-New connections request CA3's current ten-scope default grant. Existing OAuth
+New connections request CA3's current eleven-scope default grant, including
+`attachments:write`. Existing OAuth
 grants are not expanded by a plugin upgrade. If a new context tool returns
 `insufficient_scope`, reauthorize CA3 and retry in a new session.
 
@@ -109,10 +110,11 @@ the durable user intent. Reuse the same operation ID only when retrying the same
 request after a lost response.
 
 Attachments are discovered through `get_note` and read through
-`read_attachment`. Low-level upload sessions and signed policy mechanics are not
-model-facing tools. If the live Note write schema does not expose a host file
-input, report attachment writing as unsupported instead of inventing a transport
-flow.
+`read_attachment`. To add a user-requested file, Claude Code calls
+`prepare_attachment`, uploads exact local bytes only when the returned policy
+requires it, then passes the prepared `upload_id` to the same atomic
+`create_note`, `append_note`, or `edit_note` call. Signed policy details remain
+short-lived and must not be printed or persisted.
 
 ## Troubleshooting
 
