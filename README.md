@@ -41,7 +41,7 @@ Confirm CA3 is installed and enabled:
 claude plugin list --json
 ```
 
-Look for `ca3` with version `0.4.2` or newer, the expected scope, and enabled state.
+Look for `ca3` with version `0.4.3` or newer, the expected scope, and enabled state.
 
 ## MCP Endpoint
 
