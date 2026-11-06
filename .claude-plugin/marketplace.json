@@ -3,13 +3,13 @@
   "description": "CA3 plugin marketplace for Claude Code",
   "owner": {
     "name": "EnactFlow",
-    "url": "https://ca3.dribwise.ai"
+    "url": "https://ca3.dev"
   },
   "plugins": [
     {
       "name": "ca3",
       "source": "./plugins/ca3",
-      "version": "0.4.4",
+      "version": "0.4.5",
       "description": "Continue work with your user-owned CA3 context.",
       "category": "productivity",
       "tags": [

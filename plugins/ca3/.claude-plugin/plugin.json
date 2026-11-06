@@ -1,12 +1,12 @@
 {
   "name": "ca3",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "Connect Claude Code to CA3, a user-owned context and memory layer.",
   "author": {
     "name": "EnactFlow",
-    "url": "https://ca3.dribwise.ai"
+    "url": "https://ca3.dev"
   },
-  "homepage": "https://ca3.dribwise.ai",
+  "homepage": "https://ca3.dev",
   "repository": "https://github.com/enactflow/ca3-claude-code-plugin",
   "license": "MIT",
   "keywords": [
